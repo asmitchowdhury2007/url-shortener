@@ -10,9 +10,11 @@ async function createShortID(req,res){
             redirectURL : URL,
             
         });
+        return res.render("home");
         return res.status(201).json({ID :shortID });
     }
     else{
+        return res.render("home");
         return res.status(404).json({error : "URL not found"});
     }
 };
