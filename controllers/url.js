@@ -10,7 +10,9 @@ async function createShortID(req,res){
             redirectURL : URL,
             
         });
-        return res.render("home");
+        return res.render("home",{
+            id: shortID,
+        });
         return res.status(201).json({ID :shortID });
     }
     else{
@@ -37,7 +39,7 @@ async function redirectURL(req,res){
         );
         
         if(urldata){
-            return res.status(200).redirect(urldata.redirectURL);
+            return res.redirect(urldata.redirectURL);
         }
         else{
             return res.status(404).send({message: "URL INVALID"});
