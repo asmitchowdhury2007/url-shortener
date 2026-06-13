@@ -6,6 +6,9 @@
     <title>Home PAGE</title>
 </head>
 <body>
+    <% if (locals.name) { %>
+        <h2>Welcome <%= name %></h2>
+    <% } %>
     <h1>URL shortner</h1>
     <% if (locals.id) { %>
      <p>Url Generated : http://localhost:4001/url/<%= id %></p>
@@ -17,6 +20,7 @@
             <button type="submit">Generate</button>
         </form>
     </div>
+    
     <% if (locals.urls) { %>
         <table>
             <tr>

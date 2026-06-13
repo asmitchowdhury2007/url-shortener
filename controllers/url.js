@@ -16,7 +16,7 @@ async function createShortID(req,res){
         return res.status(201).json({ID :shortID });
     }
     else{
-        return res.render("home");
+        return res.render("home",);
         return res.status(404).json({error : "URL not found"});
     }
 };
