@@ -1,8 +1,9 @@
 const shortid= require("shortid");
 const url = require("../models/url");
-
+const user = require("../models/user");
 async function createShortID(req,res){
     const URL = req.body.url;
+    
     if(URL){
         let shortID = shortid.generate();
         await url.create({
