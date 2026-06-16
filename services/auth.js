@@ -4,7 +4,7 @@ function setUser(id,user){
     sessionIDtoUserLink.set(id,user); 
 };
 function getUser(id){
-    sessionIDtoUserLink.get(id);
+    return sessionIDtoUserLink.get(id);
 }
 module.exports = {
     setUser,
