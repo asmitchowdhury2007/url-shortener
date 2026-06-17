@@ -14,7 +14,7 @@ async function createShortID(req,res){
         return res.render("home",{
             id: shortID,
         });
-        return res.status(201).json({ID :shortID });
+        //return res.status(201).json({ID :shortID });
     }
     else{
         return res.render("home",);
