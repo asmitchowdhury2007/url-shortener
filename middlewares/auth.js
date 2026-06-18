@@ -4,7 +4,8 @@ async function restricToLoggedInUser(req,res,next){
     if(UserID){
         const user = getUser(UserID);
         if(user){
-            return res.render("home");
+            req.user = user;
+            next();
         }
         else{
             return res.redirect("/login");
@@ -14,7 +15,7 @@ async function restricToLoggedInUser(req,res,next){
     else{
         return res.redirect("/login");
     }
-    next();
+    
 }
 module.exports ={
     restricToLoggedInUser,

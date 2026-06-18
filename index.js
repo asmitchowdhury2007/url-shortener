@@ -9,10 +9,12 @@ const staticRoute = require("./routes/staticRouter");
 const userRoute = require("./routes/user");
 
 const {restricToLoggedInUser}=require("./middlewares/auth");
+const cookieParser = require("cookie-parser");
+
 //Connect with MOngoDB
 ConnectMongoDB("mongodb://127.0.0.1:27017/urlList").then(()=> console.log("MongoDB running.."));
 //cookie-parser
-const cookieParser = require("cookie-parser");
+
 
 //middlewares
 

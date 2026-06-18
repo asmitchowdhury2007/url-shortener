@@ -2,6 +2,7 @@ const shortid= require("shortid");
 const url = require("../models/url");
 const user = require("../models/user");
 async function createShortID(req,res){
+    
     const URL = req.body.url;
     
     if(URL){
@@ -9,7 +10,7 @@ async function createShortID(req,res){
         await url.create({
             shortID: shortID,
             redirectURL : URL,
-            
+            createdBy : req.user._id,
         });
         return res.render("home",{
             id: shortID,
@@ -17,7 +18,7 @@ async function createShortID(req,res){
         //return res.status(201).json({ID :shortID });
     }
     else{
-        return res.render("home",);
+        return res.render("home");
         return res.status(404).json({error : "URL not found"});
     }
 };
@@ -38,7 +39,7 @@ async function redirectURL(req,res){
             },
             {returnDocument:"after"}
         );
-        
+        console.log(urldata);
         if(urldata){
             return res.redirect(urldata.redirectURL);
         }
