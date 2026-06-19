@@ -8,7 +8,7 @@ const urlRouter = require("./routes/router");
 const staticRoute = require("./routes/staticRouter");
 const userRoute = require("./routes/user");
 
-const {restricToLoggedInUser}=require("./middlewares/auth");
+const {restricToLoggedInUser, checkAuth}=require("./middlewares/auth");
 const cookieParser = require("cookie-parser");
 
 //Connect with MOngoDB
@@ -27,7 +27,7 @@ app.use(cookieParser());
 //router
 
 app.use("/url",restricToLoggedInUser, urlRouter);
-app.use("/", staticRoute);
+app.use("/",checkAuth, staticRoute);
 app.use("/user", userRoute);
 
 

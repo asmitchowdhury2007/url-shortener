@@ -3,7 +3,7 @@ const router = express.Router();
 const url = require("../models/url")
 
 router.get("/", async(req,res) => {
-    const allUrls = await url.find({})
+    const allUrls = await url.find({createdBy: req.user._id});
     return res.render("home", {
         urls : allUrls,
     });

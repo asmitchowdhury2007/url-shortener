@@ -39,7 +39,7 @@ async function redirectURL(req,res){
             },
             {returnDocument:"after"}
         );
-        console.log(urldata);
+        
         if(urldata){
             return res.redirect(urldata.redirectURL);
         }

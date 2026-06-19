@@ -3,7 +3,7 @@ const {v4: uuidv4} = require("uuid");
 const {setUser,getUser}=require("../services/auth");
 async function createUser(req,res){
     
-    const {name, email, password} = req.body;
+    const {name, email, password} = req.body; 
     await user.create({
         name,
         email,
