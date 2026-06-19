@@ -9,9 +9,7 @@ async function createUser(req,res){
         email,
         password,
     })
-    return res.render("home",{
-        name : name
-    });
+    return res.render("login");
 }
 
 async function checkLoginUser(req,res){
