@@ -9,7 +9,7 @@ async function createUser(req,res){
         email,
         password,
     })
-    return res.render("login");
+    return res.redirect("/login");
 }
 
 async function checkLoginUser(req,res){
@@ -20,12 +20,10 @@ async function checkLoginUser(req,res){
         const sessionID = uuidv4();
         setUser(sessionID,User);
         res.cookie("uid", sessionID);
-        return res.render("home", {
-            name : User.name,
-        })
+        return res.redirect("/");
     }
     else{
-        return res.render("login");
+        return res.rediect("/login");
     }
 }
 

@@ -12,8 +12,10 @@ async function createShortID(req,res){
             redirectURL : URL,
             createdBy : req.user._id,
         });
+        const allUrls = await url.find({createdBy: req.user._id,});
         return res.render("home",{
-            id: shortID,
+            id : shortID,
+            urls : allUrls,
         });
         //return res.status(201).json({ID :shortID });
     }
