@@ -17,9 +17,9 @@ async function checkLoginUser(req,res){
     const {email, password} = req.body;
     const User = await user.findOne({email,password});
     if (User){
-        const sessionID = uuidv4();
-        setUser(sessionID,User);
-        res.cookie("uid", sessionID);
+        
+        const token = setUser(User);
+        res.cookie("uid", token);
         return res.redirect("/");
     }
     else{
