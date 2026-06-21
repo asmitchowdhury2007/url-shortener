@@ -23,7 +23,7 @@ async function checkLoginUser(req,res){
         return res.redirect("/");
     }
     else{
-        return res.rediect("/login");
+        return res.redirect("/login");
     }
 }
 
